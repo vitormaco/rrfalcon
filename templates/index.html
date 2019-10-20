@@ -5,7 +5,7 @@
   <body>
     <h1>Video Streaming Demonstration</h1>
     <img src="{{ url_for('video_feed') }}">
-    <div id="dataHolder" />
+    <p id="dhtSensor"/>
     <script>
       setInterval(()=>{
         fetch('/dht')
@@ -13,8 +13,7 @@
             return data.text();
           })
           .then(text => {
-            const p = document.createTextNode(text)
-            document.getElementById("dataHolder").appendChild(p);
+            document.getElementById("dhtSensor").innerText = text;
         })
       }, 1000)
     </script>
