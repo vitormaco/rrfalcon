@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 
 in1 = 14
 in2 = 15
-servopin = 17
+servopin = 18
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1, GPIO.OUT)
@@ -18,7 +18,7 @@ servo.start(7.5)
 
 print("\n")
 print("w-frente s-tras x-para q-sai")
-print("a-esquerda d-direita c-reto 1,2,3 - velocidades")
+print("a-esquerda d-direita c-reto 1,2,3,4,5 - velocidades")
 print("\n")
 
 speed = 100
@@ -61,16 +61,26 @@ while True:
 
     elif x == '1':
         print("marcha 1")
-        speed = 50
+        speed = 20
         x = 'z'
 
     elif x == '2':
         print("marcha 2")
-        speed = 75
+        speed = 40
         x = 'z'
 
     elif x == '3':
         print("marcha 3")
+        speed = 60
+        x = 'z'
+
+    elif x == '4':
+        print("marcha 4")
+        speed = 80
+        x = 'z'
+
+    elif x == '5':
+        print("marcha 5")
         speed = 100
         x = 'z'
 
