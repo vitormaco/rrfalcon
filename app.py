@@ -5,9 +5,9 @@ from flask import Flask, render_template, Response
 
 # Raspberry Pi camera module (requires picamera package)
 from camera_pi import Camera
+from dht import readDHTSensor
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -33,8 +33,7 @@ def video_feed():
 @app.route('/dht')
 def dht():
     """Humidity and Temperature sensor."""
-    text = 'teste'
-    return Response(text, mimetype='text/xml')
+    return Response(readDHTSensor(), mimetype='text/xml')
 
 
 if __name__ == '__main__':

@@ -7,14 +7,16 @@
     <img src="{{ url_for('video_feed') }}">
     <div id="dataHolder" />
     <script>
-      fetch('/dht')
-        .then(data => {
-          return data.text();
+      setInterval(()=>{
+        fetch('/dht')
+          .then(data => {
+            return data.text();
+          })
+          .then(text => {
+            const p = document.createTextNode(text)
+            document.getElementById("dataHolder").appendChild(p);
         })
-        .then(text => {
-          const p = document.createTextNode(text)
-          document.getElementById("dataHolder").appendChild(p);
-        })
+      }, 1000)
     </script>
   </body>
 </html>
