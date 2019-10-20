@@ -15,7 +15,20 @@
           .then(text => {
             document.getElementById("dhtSensor").innerText = text;
         })
-      }, 1000)
+      }, 10000)
+    </script>
+
+    <p id="gasSensor"/>
+    <script>
+      setInterval(()=>{
+        fetch('/gas')
+          .then(data => {
+            return data.text();
+          })
+          .then(text => {
+            document.getElementById("gasSensor").innerText = text;
+        })
+      }, 10000)
     </script>
   </body>
 </html>
