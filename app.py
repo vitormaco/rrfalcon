@@ -36,8 +36,9 @@ def dht():
     """Humidity and Temperature sensor."""
     return Response(readDHTSensor(), mimetype='text/xml')
 
+
 @app.route('/gas')
-def dht():
+def gas():
     """Humidity and Temperature sensor."""
     return Response(readGasSensor(), mimetype='text/xml')
 
