@@ -2,15 +2,17 @@
 from importlib import import_module
 import os
 from flask import Flask, render_template, Response
+from flask import CORS
 from camera_pi import Camera
 from dht import readDHTSensor
 from gas import readGasSensor
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return Response('Health Check', mimetype='text/xml')
 
 
 def videogen(camera):
