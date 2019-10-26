@@ -9,6 +9,10 @@ from gas import readGasSensor
 from wheels_dcmotor import moveDCMotor
 from wheels_servo import turnDirectionServo
 
+import atexit
+import RPi.GPIO
+atexit.register(RPi.GPIO.cleanup)
+
 app = Flask(__name__)
 CORS(app)
 
