@@ -1,13 +1,11 @@
 import RPi.GPIO as GPIO
-
-in1 = 14
-in2 = 15
+from constants import DCMOTOR_PIN_A, DCMOTOR_PIN_B
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(in1, GPIO.OUT)
-GPIO.setup(in2, GPIO.OUT)
-outA = GPIO.PWM(in1, 1000)
-outB = GPIO.PWM(in2, 1000)
+GPIO.setup(DCMOTOR_PIN_A, GPIO.OUT)
+GPIO.setup(DCMOTOR_PIN_B, GPIO.OUT)
+outA = GPIO.PWM(DCMOTOR_PIN_A, 1000)
+outB = GPIO.PWM(DCMOTOR_PIN_B, 1000)
 outA.start(0)
 outB.start(0)
 

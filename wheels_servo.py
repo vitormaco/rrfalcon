@@ -1,12 +1,10 @@
 import RPi.GPIO as GPIO
-
-servopin = 18
-SERVO_MIDDLE = 7.5
+from constants import DIRECTION_SERVO_PIN, SERVO_MIDDLE_PWM
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(servopin, GPIO.OUT)
-servo = GPIO.PWM(servopin, 50)
-servo.start(SERVO_MIDDLE)
+GPIO.setup(DIRECTION_SERVO_PIN, GPIO.OUT)
+servo = GPIO.PWM(DIRECTION_SERVO_PIN, 50)
+servo.start(SERVO_MIDDLE_PWM)
 
 def turnDirectionServo(degrees):
-  servo.ChangeDutyCycle(SERVO_MIDDLE + degrees/100)
+  servo.ChangeDutyCycle(SERVO_MIDDLE_PWM + degrees/100)

@@ -1,12 +1,11 @@
 import RPi.GPIO as GPIO
-
-gaspin = 3
+from constants import GAS_SENSOR_PIN
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(gaspin, GPIO.IN)
+GPIO.setup(GAS_SENSOR_PIN, GPIO.IN)
 
 def readGasSensor():
-  value = GPIO.input(gaspin)
+  value = GPIO.input(GAS_SENSOR_PIN)
   if value == 1:
     return 'ta suave'
   elif value == 0:
