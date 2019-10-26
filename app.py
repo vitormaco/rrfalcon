@@ -6,7 +6,8 @@ from flask_cors import CORS
 from camera_pi import Camera
 from dht import readDHTSensor
 from gas import readGasSensor
-from motordc import moveDCMotor
+from wheels_dcmotor import moveDCMotor
+from wheels_servo import turnDirectionServo
 
 app = Flask(__name__)
 CORS(app)
@@ -21,6 +22,14 @@ def move():
     req_data = request.get_json()
     speed = req_data['speed']
     moveDCMotor(speed)
+    return Response('sucess', mimetype='text/xml')
+
+
+@app.route('/turn', methods=['POST'])
+def turn():
+    req_data = request.get_json()
+    degrees = req_data['degrees']
+    turnDirectionServo(degrees)
     return Response('sucess', mimetype='text/xml')
 
 

@@ -20,5 +20,5 @@ def moveForward(speed):
 
 def moveBackwards(speed):
   outA.ChangeDutyCycle(0)
-  outB.ChangeDutyCycle(speed)
+  outB.ChangeDutyCycle(-speed)
 
