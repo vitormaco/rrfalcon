@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 from importlib import import_module
 import os
-from flask import Flask, render_template, Response
-from flask import CORS
+from flask import Flask, render_template, Response, request
+from flask_cors import CORS
 from camera_pi import Camera
 from dht import readDHTSensor
 from gas import readGasSensor
+from motordc import moveDCMotor
 
 app = Flask(__name__)
 CORS(app)
@@ -13,6 +14,14 @@ CORS(app)
 @app.route('/')
 def index():
     return Response('Health Check', mimetype='text/xml')
+
+
+@app.route('/move', methods=['POST'])
+def move():
+    req_data = request.get_json()
+    speed = req_data['speed']
+    moveDCMotor(speed)
+    return Response('sucess', mimetype='text/xml')
 
 
 def videogen(camera):
