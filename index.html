@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Controlador RRFalcon</title>
+
+  <script src="https://use.fontawesome.com/1bce88a324.js"></script>
+
+  <script src="/client.js"></script>
+
+  <style>
+
+    body {
+      background-color: rgb(236, 236, 236);
+      font-family: sans-serif;
+    }
+
+    .box-shadow-container {
+      -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      padding: 10px;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    /* .image-feed {
+      -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      padding: 10px;
+      border-radius: 5px;
+      background-color: white;
+    } */
+
+    .title-container {
+      -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+      padding: 10px;
+      border-radius: 50px;
+      background-color: white;
+      font-size: 32px;
+    }
+
+    .column-centered {
+      display: flex;
+      flex-direction: column; 
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .data-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .command-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .arrow-icon-container {
+      margin: 5px;
+      padding: 10px;
+      border-radius: 50%;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .arrow-selected {
+      background-color: rgb(105, 105, 105);
+    }
+  </style>
+</head>
+<body>
+  
+  <span style="
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1%;">
+
+    <span class="title-container">
+      Controlador RRFalcon
+    </span>
+    
+    <span style="display: flex; flex-direction: row; justify-content: space-around; width: 100%;">
+        
+      <span class="box-shadow-container">
+        <span class="column-centered">
+          <h2>Feed da camera</h2>
+          <!-- <img src="/Build.jpg" style="width: 800px; height: 100%;"> -->
+          <img src="http://192.168.43.199:5000/video_feed" style="width: 600px; height: 100%;">
+        </span>
+      </span>
+
+      <span class="column-centered">
+        <span class="box-shadow-container data-container">
+          <h2>Dados</h2>
+          Dado1: hello
+        </span>
+
+        <span class="box-shadow-container command-container">
+          <span>
+            <h2>Comandos</h2>
+          </span>
+
+          <span style="width: 100%; display: flex; flex-direction: row; justify-content: space-around;">
+
+            <span class="speed-container">
+              <strong>Velocidade:</strong><span id="speed-field">0</span>
+            </span>
+
+            <span style="width: 100%; display: flex; flex-direction: row; justify-content: center; align-items: flex-end;">
+
+              <span class="box-shadow-container arrow-icon-container" id="arrow-left">
+                <img src="/icons/left-arrow.png" style="width: 40px; height: 40px;">
+              </span>
+
+              <span style="display: flex; flex-direction: column;"> 
+                <span class="box-shadow-container arrow-icon-container" id="arrow-up">
+                  <img src="/icons/left-arrow.png" style="width: 40px; height: 40px; transform: rotate(90deg);">
+                </span>
+
+                <span class="box-shadow-container arrow-icon-container" id="arrow-down">
+                  <img src="/icons/left-arrow.png" style="width: 40px; height: 40px; transform: rotate(-90deg);">
+                </span>
+              </span>
+
+              <span class="box-shadow-container arrow-icon-container" id="arrow-right">
+                <img src="/icons/left-arrow.png" style="width: 40px; height: 40px; transform: rotate(180deg);">
+              </span>
+
+            </span>
+          </span>
+          
+        </span>
+      </span>
+
+    </span>
+
+  </span>
+
+</body>
+</html>
