@@ -47,7 +47,7 @@
 
     .column-centered {
       display: flex;
-      flex-direction: column; 
+      flex-direction: column;
       justify-content: space-around;
       align-items: center;
     }
@@ -79,7 +79,7 @@
   </style>
 </head>
 <body>
-  
+
   <span style="
     display: flex;
     flex-direction: column;
@@ -95,21 +95,22 @@
     <span class="title-container">
       Controlador RRFalcon
     </span>
-    
+
     <span style="display: flex; flex-direction: row; justify-content: space-around; width: 100%;">
-        
+
       <span class="box-shadow-container">
         <span class="column-centered">
           <h2>Feed da camera</h2>
           <!-- <img src="/Build.jpg" style="width: 800px; height: 100%;"> -->
-          <img src="http://192.168.43.199:5000/video_feed" style="width: 600px; height: 100%;">
+          <!-- <img src="http://192.168.43.199:5000/video_feed" style="width: 600px; height: 100%;"> -->
         </span>
       </span>
 
       <span class="column-centered">
         <span class="box-shadow-container data-container">
           <h2>Dados</h2>
-          Dado1: hello
+          <strong>Gas:</strong><span id="datagas"></span>
+          <strong></strong><span id="datadht"></span>
         </span>
 
         <span class="box-shadow-container command-container">
@@ -129,7 +130,7 @@
                 <img src="/icons/left-arrow.png" style="width: 40px; height: 40px;">
               </span>
 
-              <span style="display: flex; flex-direction: column;"> 
+              <span style="display: flex; flex-direction: column;">
                 <span class="box-shadow-container arrow-icon-container" id="arrow-up">
                   <img src="/icons/left-arrow.png" style="width: 40px; height: 40px; transform: rotate(90deg);">
                 </span>
@@ -145,7 +146,7 @@
 
             </span>
           </span>
-          
+
         </span>
       </span>
 

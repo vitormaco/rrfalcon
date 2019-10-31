@@ -26,10 +26,31 @@ const configArrows = () => {
   arrowsElements.RIGHT = document.getElementById('arrow-right');
 }
 
+
+const getSensorData = () => {
+  setInterval(()=> {
+    getGasData();
+    getTempHumData();
+  }, 7500);
+}
+
+
 const getGasData = () => {
+  fetch(url + `gas`)
+    .then(res => res.text())
+    .then(data => {
+      console.log(`datagas`, data);
+      document.getElementById("datagas").innerText = data;
+    })
 }
 
 const getTempHumData = () => {
+  fetch(url + `dht`)
+    .then(res => res.text())
+    .then(data => {
+      console.log(`datadht`, data);
+      document.getElementById("datadht").innerText = data;
+    })
 }
 
 const moveCar = (command) => {
@@ -216,6 +237,7 @@ const init = () => {
   console.log('init');
   configArrows();
   speedElement = document.getElementById('speed-field');
+  getSensorData();
 }
 
 window.onkeydown = keyDown;
