@@ -28,6 +28,8 @@ const configArrows = () => {
 
 
 const getSensorData = () => {
+  getGasData();
+  getTempHumData();
   setInterval(()=> {
     getGasData();
     getTempHumData();
@@ -39,7 +41,6 @@ const getGasData = () => {
   fetch(url + `gas`)
     .then(res => res.text())
     .then(data => {
-      console.log(`datagas`, data);
       document.getElementById("datagas").innerText = data;
     })
 }
@@ -48,7 +49,6 @@ const getTempHumData = () => {
   fetch(url + `dht`)
     .then(res => res.text())
     .then(data => {
-      console.log(`datadht`, data);
       document.getElementById("datadht").innerText = data;
     })
 }
@@ -188,7 +188,6 @@ const QKey = () => {
 }
 
 const keyDown = (event) => {
-  console.log(event);
   switch(event.code) {
     case ("ArrowLeft"):
       if (!keyPressed.LEFT)
