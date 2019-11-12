@@ -1,4 +1,6 @@
-const url = 'http://192.168.43.199:5000/';
+const url = 'http://192.168.0.107:5000/';
+
+console.log('url', url);
 
 let carSpeed = 0;
 let carDirection = 0;
@@ -56,6 +58,7 @@ const turnCar = (command) => {
         'Content-Type': 'application/json'
     }
   }
+  console.log('url', url);
   fetch(url + 'turn', options).then(res => {
     res.text().then(data => {
     });
