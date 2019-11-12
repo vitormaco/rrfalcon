@@ -7,9 +7,6 @@ from camera_pi import Camera
 app = Flask(__name__)
 CORS(app)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', threaded=True, port=3001)
-
 def videogen(camera):
     while True:
         frame = camera.get_frame()
@@ -21,3 +18,6 @@ def videogen(camera):
 def video_feed():
     return Response(videogen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', threaded=True, port=3001)
