@@ -1,4 +1,5 @@
-const url = 'http://192.168.0.107:5000/';
+let address = '192.168.43.199';
+let url = 'http://' + address + ':5000/';
 
 console.log('url', url);
 
@@ -235,11 +236,28 @@ const keyUp = (event) => {
   }
 }
 
+const initAddressChanger = () => {
+  const field = document.getElementById('field-endereco');
+  field.innerText = address;
+  const button = document.getElementById('botao-endereco');
+  const input = document.getElementById('input-endereco');
+  const feed = document.getElementById('video-feed');
+  button.onclick = () => {
+    const value = input.value;
+    address = value;
+    console.log('changing address', address);
+    url = 'http://' + address + ':5000/';
+    field.innerText = address;
+    feed.src = `http://${value}:8000/stream.mjpg`
+  }
+}
+
 const init = () => {
   console.log('init');
   configArrows();
   speedElement = document.getElementById('speed-field');
   getSensorData();
+  initAddressChanger();
 }
 
 window.onkeydown = keyDown;
